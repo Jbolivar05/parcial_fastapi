@@ -5,6 +5,7 @@ contraseña, recibe un código OTP de 6 dígitos por correo y, al verificarlo,
 obtiene un token JWT para acceder a rutas protegidas.
 
 **Equipo:** Javier Bolivar
+**Repositorio:** https://github.com/Jbolivar05/parcial_fastapi
 **Despliegue:** (pendiente)
 **Documentación interactiva:** (pendiente)
 
@@ -23,7 +24,7 @@ obtiene un token JWT para acceder a rutas protegidas.
 1. Clonar el repositorio:
 
 ```bash
-git clone URL_DEL_REPOSITORIO
+git clone https://github.com/Jbolivar05/parcial_fastapi.git
 cd parcial_fastapi
 ```
 
