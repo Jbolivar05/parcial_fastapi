@@ -36,6 +36,9 @@ class Settings:
     SMTP_PASSWORD: str = os.getenv("SMTP_PASSWORD", "")
     EMAIL_FROM: str = os.getenv("EMAIL_FROM", "")
 
+    # Solo desarrollo: muestra el OTP en la terminal en vez de enviarlo
+    DEV_PRINT_OTP: bool = os.getenv("DEV_PRINT_OTP", "false").lower() == "true"
+
     def validate(self) -> None:
         """Verifica que las variables críticas estén configuradas.
 

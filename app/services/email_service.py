@@ -18,6 +18,10 @@ def send_otp_email(to_email: str, code: str) -> None:
     Raises:
         EmailSendError: si el SMTP falla o no está configurado.
     """
+    if settings.DEV_PRINT_OTP:
+        print(f"[DEV] OTP para {to_email}: {code}", flush=True)
+        return
+
     if not settings.SMTP_USER or not settings.SMTP_PASSWORD:
         logger.error("SMTP no configurado")
         raise EmailSendError("Servicio de correo no configurado")
@@ -38,6 +42,5 @@ def send_otp_email(to_email: str, code: str) -> None:
             server.login(settings.SMTP_USER, settings.SMTP_PASSWORD)
             server.send_message(msg)
     except (smtplib.SMTPException, OSError) as exc:
-        # Solo el tipo de error: nunca credenciales ni el código
         logger.error("Fallo al enviar correo: %s", type(exc).__name__)
         raise EmailSendError("No se pudo enviar el correo") from exc
